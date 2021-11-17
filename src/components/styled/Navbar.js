@@ -7,6 +7,8 @@ justify-content: space-between;
 align-items: center;
 padding: 0px 30px;
 background-color: #0F4956;
+position:sticky;
+top:0;
 
 .logo{
     margin-left: 10px;

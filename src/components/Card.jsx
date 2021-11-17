@@ -12,7 +12,7 @@ const Card = ({id, item}) => {
        <p id="price">Price: ${item.price}</p>
    </div>
 
-   <button>Add to cart</button>
+   <button id="btn">Add to cart</button>
 
   </StyledCard>
      
