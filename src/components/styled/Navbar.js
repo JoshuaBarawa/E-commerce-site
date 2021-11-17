@@ -5,15 +5,17 @@ const StyledNavbar = styled.nav`
 display: flex;
 justify-content: space-between;
 align-items: center;
+padding: 0px 30px;
 background-color: #0F4956;
 
 .logo{
     margin-left: 10px;
+    color:white;
 }
 
 .links{
     display: inline-flex;
-    justify-content: space-between;
+
 }
 
 .links li{
@@ -21,11 +23,12 @@ background-color: #0F4956;
  }
 
 .links .link{
-   margin-right: 20px;
+   margin-right: 30px;
    text-decoration: none;
    font-size: 21px;
    color:#fff;
 }
+
 
 `
 
