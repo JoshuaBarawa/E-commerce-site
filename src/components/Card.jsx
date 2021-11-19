@@ -1,7 +1,10 @@
 
 import StyledCard from './styled/Card'
 
-const Card = ({id, item}) => {
+
+
+const Card = ({id, item, addToCart}) => {
+    
     return ( 
 
   <StyledCard>
@@ -12,7 +15,7 @@ const Card = ({id, item}) => {
        <p id="price">Price: ${item.price}</p>
    </div>
 
-   <button id="btn">Add to cart</button>
+   <button id="btn" onClick={addToCart}>Add to cart</button>
 
   </StyledCard>
      

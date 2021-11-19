@@ -2,9 +2,11 @@
 import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-    
+
+
 *{
     scroll-behavior: smooth;
+    font-family: 'Oswald', sans-serif;
 }
 
 body{

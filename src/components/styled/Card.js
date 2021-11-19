@@ -18,8 +18,12 @@ img{
 }
 
 #title{
-    font-size:18px;
+    font-size:16px;
     color:#5C548A;
+}
+#price{
+    font-size:20px;
+   
 }
 
 #btn{

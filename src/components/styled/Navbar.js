@@ -9,6 +9,7 @@ padding: 0px 30px;
 background-color: #0F4956;
 position:sticky;
 top:0;
+height: 70px;
 
 .logo{
     margin-left: 10px;

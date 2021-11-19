@@ -6,7 +6,6 @@ margin: 30px;
 display: flex;
 
 #products{
-    
     postion:relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -16,26 +15,29 @@ display: flex;
 #category{
     margin-right: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    height: 300px;
+    max-height: 350px;
     position:sticky;
-    top: 50px;
+    top: 100px;
     border-radius: 5px; 
   
 }
 
 #category li{
-    width: 100%;
+    width:100%;
+    margin-left:-20px;
     list-style-type:none; 
     padding: 10px;
     margin-right: 40px;
-    border: #5C548A 1px solid;
+    border-bottom: #5C548A 1px solid;
  }
 
-#category li #c-link{
+#category li #c-btn{
+    width:100%;
    text-decoration:none;
    font-size: 15px;
    text-transform: capitalize; 
- font-weight: bold;
+   background-color: transparent;
+   border:none;
 }
 
 `
