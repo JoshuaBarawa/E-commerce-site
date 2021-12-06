@@ -8,7 +8,45 @@ display: flex;
 
 .cart{
     display: flex;
-    flex: 0.8;
+    justify-content: space-between;
+    height: 150px;
+    margin: 20px 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding:20px 20px;
+
+}
+#item{
+    width:120px;
+}
+
+#product{
+    display:flex;
+}
+
+#info{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    padding-left:10px;
+}
+
+#action{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+
+#minus, #add{
+    padding: 2px 20px;
+    font-size: 20px;
+    margin: 0px 5px;
+    
+}
+
+#remove{
+    background-color:transparent;
+    border:none;
+    color:red;
 }
 
 `
