@@ -1,28 +1,89 @@
 
+import React from 'react'
 import Navbar from "./components/Navbar"
 import {Route, Routes} from 'react-router-dom'
 import Cart from './components/Cart'
 import Contact from './components/Contact'
 import Products from './components/Products'
+import ProductPage from './components/ProductPage'
 
 import Container from './components/styled/Container'
 import GlobalStyle from './components/styled/GlobalStyles'
 import {ThemeProvider} from "styled-components"
+import axios from 'axios'
 
+
+import {useState, useEffect} from 'react'
 function App() {
 
-  const theme = {
+const [products, setProducts] = useState([]);
+const [categories, setCategories] = useState([]);
+ const [cartItems, setCartItems] = useState([])
+
+useEffect(() => {
+
+  const getProducts = async () => {
+    await axios.get("https://fakestoreapi.com/products")
+    .then((response) => {
+    setProducts(response.data)
+  })  
 
   }
+ 
+const getCategories = async () => {
+  await axios.get("https://fakestoreapi.com/products/categories")
+  .then((response) => {
+    setCategories(response.data)
+  }) 
+}
+
+getProducts();
+getCategories();
+}, [])
+
+
+const addToCart = item =>{
+   axios.get("https://fakestoreapi.com/products/" + item.target.value)
+  .then((response) => {
+  
+ cartItems.push(response.data)
+ setCartItems([...cartItems])
+ sessionStorage.setItem("orders", JSON.stringify(cartItems));
+  setCartItems(JSON.parse(sessionStorage.getItem("orders")));
+
+ console.log(cartItems)
+ console.log(cartItems.length)
+
+  }) 
+      
+}
+
+
+
+
+
+const filterProducts = category =>{
+  const url = category.target.value === 'All' ? "https://fakestoreapi.com/products" : "https://fakestoreapi.com/products/category/" + category.target.value;
+  axios.get(url)
+  .then((response) => {
+     setProducts(response.data)
+    })};
+
+
+
+const theme = {
+          
+}
 
   return (
-  <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <Navbar />
-    <Container>
+    <Container> 
       <Routes>
-      <Route  exact path='/' element={<Products/>} />
-        <Route exact path='/cart' element={<Cart/>} />
+      <Route  exact path='/' element={<Products products={products} categories={categories} handleFilter={filterProducts}/>} />
+        <Route exact path='/cart' element={<Cart cartItems={cartItems}/>} />
+        <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart}/>} />
         <Route exact path='/contact' element={<Contact/>} />
       </Routes>
 

@@ -1,9 +1,9 @@
 
 import StyledCard from './styled/Card'
+import {Link} from 'react-router-dom'
 
 
-
-const Card = ({id, item, addToCart}) => {
+const Card = ({id, item}) => {
     
     return ( 
 
@@ -15,7 +15,7 @@ const Card = ({id, item, addToCart}) => {
        <p id="price">Price: ${item.price}</p>
    </div>
 
-   <button id="btn" onClick={addToCart}>Add to cart</button>
+   <Link id="btn" to={`/product/${id}`}>Buy Now</Link>
 
   </StyledCard>
      
