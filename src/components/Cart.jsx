@@ -1,11 +1,12 @@
 
 import { StyledCart } from "./styled/Cart"
 
-function Cart({cartItems}) {
+function Cart({cartItems, total}) {
   
   if(  sessionStorage.getItem("orders") != null){
     cartItems = JSON.parse(sessionStorage.getItem("orders"))
   }
+
 
     return ( 
         
@@ -16,28 +17,39 @@ function Cart({cartItems}) {
             <div className="cart">
         
         <div id="product">
-            <img id="item" src={item.image} alt="" />
+            <img id="item" src={item.product.image} alt="" />
 
             <div id="info">
-            <p id="title">{item.title}</p>
+            <p id="title">{item.product.title}</p>
             <div>
-            <button id="minus">-</button><span id="value">0</span><button id="add">+</button>  
+            <button id="minus">-</button><span id="value">{item.quantity}</span><button id="add">+</button>  
             </div>
             </div> 
             </div>
 
             <div id="action">
             <button id="remove"><img src='./images/close_black_24dp.png' alt=""/></button>
-            <p id="price">${item.price}</p>
+            <p id="price">${item.product.price * item.quantity}</p>
             </div>
             </div>
+
+
            
-            )})} </p>}
+            )})} 
+            <div className="order-form">
+            <p>SubTotal: {total}</p>
+            <p>VAT: Not Included</p>
+            <p>Total: {total}</p>
+
+            <a href="#">Proceed To Checkout</a>
+            </div>
+            
+            
+            
+            </p>}
 
 
-          <div className="order-form">
-              <p>Hello World!</p>
-          </div>
+         
 
        </StyledCart>
      );

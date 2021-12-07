@@ -4,18 +4,23 @@ import {NavLink} from 'react-router-dom'
 import StyledNavbar from './styled/Navbar'
 
 
-class Navbar extends React.Component {
-    render() { 
+const Navbar = ({orders}) => {
         return <StyledNavbar>
        <NavLink to='/' className="logo" >LOGO</NavLink>
 
 <ul className="links">
-    <li><NavLink className="link" to='/cart'><img className="image" src='./images/shopping_cart.png' alt=""/>Cart</NavLink></li>
+    <li><NavLink className="link" to='/cart'><button type="button" class="btn btn-primary position-relative">
+    <img className="image" src='./images/shopping_cart.png' alt=""/>
+  Cart
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+    {orders}
+  </span>
+</button></NavLink></li>
     <li><NavLink className="link" to='/contact'>Contact</NavLink></li>
 </ul>
 
         </StyledNavbar>;
-    }
+    
 }
  
 export default Navbar;

@@ -18,7 +18,15 @@ function App() {
 
 const [products, setProducts] = useState([]);
 const [categories, setCategories] = useState([]);
- const [cartItems, setCartItems] = useState([])
+const [cartItems, setCartItems] = useState([])
+const [quantity, setQuantity] = useState(1)
+const [count, setCount] = useState(0);
+
+const Product = function(product, quantity) {
+   this.product = product;
+   this.quantity = quantity;
+  return { product, quantity };
+};
 
 useEffect(() => {
 
@@ -45,22 +53,22 @@ getCategories();
 const addToCart = item =>{
    axios.get("https://fakestoreapi.com/products/" + item.target.value)
   .then((response) => {
+
+  const newProduct = new Product(response.data, quantity)
+
+      cartItems.push(newProduct)
+      setCartItems([...cartItems])
+     
+      sessionStorage.setItem("orders", JSON.stringify(cartItems));
+       setCartItems(JSON.parse(sessionStorage.getItem("orders")));
+     setCount(count + newProduct.quantity)
+       setQuantity(1)
+       console.log(cartItems)
   
- cartItems.push(response.data)
- setCartItems([...cartItems])
- sessionStorage.setItem("orders", JSON.stringify(cartItems));
-  setCartItems(JSON.parse(sessionStorage.getItem("orders")));
-
- console.log(cartItems)
- console.log(cartItems.length)
-
-  }) 
+  })
+  
       
 }
-
-
-
-
 
 const filterProducts = category =>{
   const url = category.target.value === 'All' ? "https://fakestoreapi.com/products" : "https://fakestoreapi.com/products/category/" + category.target.value;
@@ -68,6 +76,16 @@ const filterProducts = category =>{
   .then((response) => {
      setProducts(response.data)
     })};
+
+    const incrementQuantity = () =>{
+        setQuantity(quantity + 1)
+      };
+
+      const decrementQuantity = () =>{
+       
+        setQuantity(quantity - 1)
+       
+         };
 
 
 
@@ -78,12 +96,12 @@ const theme = {
   return (
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
-    <Navbar />
+    <Navbar orders={count}/>
     <Container> 
       <Routes>
       <Route  exact path='/' element={<Products products={products} categories={categories} handleFilter={filterProducts}/>} />
         <Route exact path='/cart' element={<Cart cartItems={cartItems}/>} />
-        <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart}/>} />
+        <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart} decrItem={decrementQuantity} incrItem={incrementQuantity} quantity={quantity}/>} />
         <Route exact path='/contact' element={<Contact/>} />
       </Routes>
 
