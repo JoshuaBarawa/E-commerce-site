@@ -1,12 +1,9 @@
 
 import { StyledCart } from "./styled/Cart"
+import {Link} from 'react-router-dom'
 
-function Cart({cartItems, total}) {
+function Cart({cartItems,removeItem, total}) {
   
-  if(  sessionStorage.getItem("orders") != null){
-    cartItems = JSON.parse(sessionStorage.getItem("orders"))
-  }
-
 
     return ( 
         
@@ -28,28 +25,24 @@ function Cart({cartItems, total}) {
             </div>
 
             <div id="action">
-            <button id="remove"><img src='./images/close_black_24dp.png' alt=""/></button>
+            <button id="remove" value={item.id} onClick={removeItem}><img src='./images/close_black_24dp.png' alt=""/></button>
             <p id="price">${item.product.price * item.quantity}</p>
             </div>
             </div>
 
-
-           
             )})} 
+
+            
             <div className="order-form">
-            <p>SubTotal: {total}</p>
-            <p>VAT: Not Included</p>
+            <p>SubTotal:{total}</p>
+            <p>Delivery: Free</p>
             <p>Total: {total}</p>
 
-            <a href="#">Proceed To Checkout</a>
+            <Link className="btn-checkout" to="/checkout">Proceed To Checkout</Link>
             </div>
-            
-            
             
             </p>}
 
-
-         
 
        </StyledCart>
      );

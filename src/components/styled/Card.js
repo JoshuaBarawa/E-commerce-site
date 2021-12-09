@@ -14,8 +14,8 @@ border-radius: 10px;
 
 
 img{
-    width: 80%;
-     height: 55%;
+    width: 140px;
+     height: 50%;
 }
 
 #title{

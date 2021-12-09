@@ -6,11 +6,14 @@ import Cart from './components/Cart'
 import Contact from './components/Contact'
 import Products from './components/Products'
 import ProductPage from './components/ProductPage'
+import Checkout from './components/Checkout'
+
 
 import Container from './components/styled/Container'
 import GlobalStyle from './components/styled/GlobalStyles'
 import {ThemeProvider} from "styled-components"
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
 
 
 import {useState, useEffect} from 'react'
@@ -21,6 +24,7 @@ const [categories, setCategories] = useState([]);
 const [cartItems, setCartItems] = useState([])
 const [quantity, setQuantity] = useState(1)
 const [count, setCount] = useState(0);
+const [total, setTotal] = useState(0.00)
 
 const Product = function(product, quantity) {
    this.product = product;
@@ -28,14 +32,30 @@ const Product = function(product, quantity) {
   return { product, quantity };
 };
 
+
+
 useEffect(() => {
+
+  if( sessionStorage.getItem("orders") != null){
+    setCartItems(JSON.parse(sessionStorage.getItem("orders")))
+    setQuantity(1)
+    
+    cartItems.forEach(item => {
+      setCount((count) => count + item.quantity)
+      setTotal((total) => total + (item.product.price * item.quantity))
+
+    })
+  
+  }
+
 
   const getProducts = async () => {
     await axios.get("https://fakestoreapi.com/products")
     .then((response) => {
     setProducts(response.data)
-  })  
-
+  }) 
+  
+  
   }
  
 const getCategories = async () => {
@@ -45,9 +65,13 @@ const getCategories = async () => {
   }) 
 }
 
+
+
 getProducts();
 getCategories();
-}, [])
+
+}, [cartItems.length])
+
 
 
 const addToCart = item =>{
@@ -61,14 +85,24 @@ const addToCart = item =>{
      
       sessionStorage.setItem("orders", JSON.stringify(cartItems));
        setCartItems(JSON.parse(sessionStorage.getItem("orders")));
-     setCount(count + newProduct.quantity)
-       setQuantity(1)
+       setCount(count + newProduct.quantity)
+       setTotal(total + (newProduct.product.price * newProduct.quantity))
+       
+       toast.success("Item(s) added to cart")
+
        console.log(cartItems)
   
   })
-  
-      
+
 }
+
+const removeItemFromCart = (item) =>{
+  cartItems.pop();
+  setCartItems([...cartItems])
+  console.log(item.target.value)
+  console.log(cartItems)
+}
+
 
 const filterProducts = category =>{
   const url = category.target.value === 'All' ? "https://fakestoreapi.com/products" : "https://fakestoreapi.com/products/category/" + category.target.value;
@@ -98,10 +132,12 @@ const theme = {
     <GlobalStyle/>
     <Navbar orders={count}/>
     <Container> 
+    <ToastContainer />
       <Routes>
       <Route  exact path='/' element={<Products products={products} categories={categories} handleFilter={filterProducts}/>} />
-        <Route exact path='/cart' element={<Cart cartItems={cartItems}/>} />
+        <Route exact path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItemFromCart} total={total}/>} />
         <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart} decrItem={decrementQuantity} incrItem={incrementQuantity} quantity={quantity}/>} />
+        <Route exact path='/checkout' element={<Checkout/>} />
         <Route exact path='/contact' element={<Contact/>} />
       </Routes>
 
