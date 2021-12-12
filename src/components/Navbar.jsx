@@ -12,7 +12,7 @@ const Navbar = ({orders}) => {
     <li><NavLink className="link" to='/cart'><button type="button" class="btn btn-primary position-relative">
     <img className="image" src='./images/shopping_cart.png' alt=""/>
   Cart
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     {orders}
   </span>
 </button></NavLink></li>

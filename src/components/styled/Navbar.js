@@ -14,9 +14,10 @@ height: 80px;
 .logo{
     margin-left: 10px;
     color:white;
-    font-size:40px;
+    font-size:35px;
     text-decoration: none;
     font-weight:bold;
+    text-align:center;
 }
 
 .links{

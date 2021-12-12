@@ -34,9 +34,9 @@ function Cart({cartItems,removeItem, total}) {
 
             
             <div className="order-form">
-            <p>SubTotal:{total}</p>
+            <p>SubTotal:{(total).toFixed(2)}</p>
             <p>Delivery: Free</p>
-            <p>Total: {total}</p>
+            <p>Total: {(total).toFixed(2)}</p>
 
             <Link className="btn-checkout" to="/checkout">Proceed To Checkout</Link>
             </div>

@@ -7,8 +7,7 @@ import Card from './Card'
  function Products({products, categories, handleFilter}){
 
    return ( 
- <div>  
-       <h2>Showing {products.length} products</h2>    
+ <div>   
 <StyledProduct>
 
 <ul id="category">

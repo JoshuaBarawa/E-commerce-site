@@ -10,12 +10,12 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 cursor: pointer;
-border-radius: 10px;
+border-radius: 5px;
 
 
 img{
     width: 140px;
-     height: 50%;
+     height: 45%;
 }
 
 #title{
@@ -33,10 +33,11 @@ img{
     padding: 10px 0px;
     cursor: pointer;
     font-size: 15px;
-    background-color: #1C2541;
+    background-color: #4169E1;
     border:none;
-    border-radius: 5px;
-   
+    border-radius: 3px;
+    text-align:center;
+    text-decoration:none;
 }
 
 &:hover{
