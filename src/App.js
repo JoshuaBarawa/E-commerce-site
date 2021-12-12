@@ -3,11 +3,11 @@ import React from 'react'
 import Navbar from "./components/Navbar"
 import {Route, Routes} from 'react-router-dom'
 import Cart from './components/Cart'
-import Contact from './components/Contact'
+import Login from './components/Login'
 import Products from './components/Products'
 import ProductPage from './components/ProductPage'
 import Checkout from './components/Checkout'
-
+import Signup from './components/Signup';
 
 import Container from './components/styled/Container'
 import GlobalStyle from './components/styled/GlobalStyles'
@@ -17,6 +17,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 import {useState, useEffect} from 'react'
+
 function App() {
 
 const [products, setProducts] = useState([]);
@@ -138,7 +139,8 @@ const theme = {
         <Route exact path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItemFromCart} total={total}/>} />
         <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart} decrItem={decrementQuantity} incrItem={incrementQuantity} quantity={quantity}/>} />
         <Route exact path='/checkout' element={<Checkout/>} />
-        <Route exact path='/contact' element={<Contact/>} />
+        <Route exact path='/login' element={<Login/>} />
+        <Route exact path='/signup' element={<Signup/>} />
       </Routes>
 
       </Container>

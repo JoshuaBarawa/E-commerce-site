@@ -6,7 +6,7 @@ import StyledNavbar from './styled/Navbar'
 
 const Navbar = ({orders}) => {
         return <StyledNavbar>
-       <NavLink to='/' className="logo" >LOGO</NavLink>
+       <NavLink to='/' className="logo" >E-Cart</NavLink>
 
 <ul className="links">
     <li><NavLink className="link" to='/cart'><button type="button" class="btn btn-primary position-relative">
@@ -16,7 +16,8 @@ const Navbar = ({orders}) => {
     {orders}
   </span>
 </button></NavLink></li>
-    <li><NavLink className="link" to='/contact'>Contact</NavLink></li>
+    <li><NavLink className="link" to='/login'>Login</NavLink></li>
+    <li><NavLink className="link" to='/signup'>Sign Up</NavLink></li>
 </ul>
 
         </StyledNavbar>;

@@ -7,13 +7,15 @@ const GlobalStyle = createGlobalStyle`
 *{
     scroll-behavior: smooth;
     font-family: 'Oswald', sans-serif;
+    margin:0;
+    padding:0;
 }
 
 body{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    scroll
+    
 }
 
 `
