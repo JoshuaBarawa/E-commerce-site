@@ -6,7 +6,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 0px 30px;
-background-color: #048F46;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(100,100,196,1) 0%, rgba(177,104,96,1) 22%, rgba(0,212,255,1) 100%);
 position:sticky;
 top:0;
 height: 80px;

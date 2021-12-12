@@ -8,6 +8,7 @@ function Signup() {
     return (
         <StyledForm>
         <h1>Create Account</h1>
+        <p>Enter the credentials for your account</p>
       <form>
       <Input type="text" id="username" placeholder="username"/>
        <Input type="email" id="email" placeholder="email"/>
