@@ -2,7 +2,7 @@
 import { StyledCart } from "./styled/Cart"
 import {Link} from 'react-router-dom'
 
-function Cart({cartItems,removeItem, total}) {
+function Cart({cartItems,removeItem, total, checkUser}) {
   
 
     return ( 
@@ -37,8 +37,8 @@ function Cart({cartItems,removeItem, total}) {
             <p>SubTotal:{(total).toFixed(2)}</p>
             <p>Delivery: Free</p>
             <p>Total: {(total).toFixed(2)}</p>
-
-            <Link className="btn-checkout" to="/checkout">Proceed To Checkout</Link>
+            <button className="btn-checkout" onClick={checkUser}>Proceed To Checkout</button>
+            
             </div>
             
             </p>}

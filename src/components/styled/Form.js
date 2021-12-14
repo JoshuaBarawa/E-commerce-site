@@ -18,7 +18,7 @@ h1{
 #username, #email, #password{
     width:80%;
     padding:10px 10px;
-    margin-top:30px;
+    margin-top:10px;
     border-radius:5px;
     border:none;
     border:1px solid #ccc;
@@ -42,6 +42,11 @@ h1{
 
 #signup{
     font-weight: bold;
+}
+
+#error{
+     color:red;
+     font-size: 12px;
 }
 
 `

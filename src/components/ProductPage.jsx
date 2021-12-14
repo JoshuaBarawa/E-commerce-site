@@ -33,8 +33,8 @@ return (
   <img id="featured" src={product.image} alt="" />
 
 <div id="description">
-    <span>{product.category}</span>
-    <h3>{product.title}</h3>
+    <span id="category">{product.category}</span>
+    <h3 id="title">{product.title}</h3>
     <p id="desc">{product.description} </p>
     <p id="price">Price: ${product.price}</p>
     <button id="minus" onClick={decrItem}>-</button><span id="value">{quantity}</span><button id="add" onClick={incrItem}>+</button>   

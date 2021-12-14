@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import StyledNavbar from './styled/Navbar'
 
 
-const Navbar = ({orders}) => {
+const Navbar = ({orders, handleLogout, user}) => {
         return <StyledNavbar>
        <NavLink to='/' className="logo" >E-Cart</NavLink>
 
@@ -16,8 +16,9 @@ const Navbar = ({orders}) => {
     {orders}
   </span>
 </button></NavLink></li>
-    <li><NavLink className="link" to='/login'>Login</NavLink></li>
-    <li><NavLink className="link" to='/signup'>Sign Up</NavLink></li>
+{user? <li><NavLink className="link" onClick={handleLogout} to='/logout'>Logout</NavLink></li> : <li><NavLink className="link" to='/login'>Login</NavLink></li>}
+    
+    
 </ul>
 
         </StyledNavbar>;

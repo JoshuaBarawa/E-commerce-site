@@ -1,21 +1,21 @@
 
 
 import React from 'react'
-import Input from './Input'
 import {Link} from "react-router-dom"
 import StyledForm from "./styled/Form"
 
-function Login() {
+function Login({email, password, setEmail, setPassword, handleLogin, emailError, passwordError}) {
     return (
     <StyledForm>
   <h1>Account Login</h1>
   <p>Enter email and password to login</p>
-<form>
- <Input type="email" id="email" placeholder="email"/>
- <Input type="password" id="password" placeholder="password"/>
-
- <button id="l-btn">Login</button>
-</form>
+<div>
+ <input type="email" autofocus required id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" /><br/>
+ <span id='error'>{emailError}</span><br/>
+ <input type="password" required id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" /><br/>
+ <span id='error' >{passwordError}</span><br/>
+ <button id="l-btn" onClick={handleLogin}>Login</button>
+</div>
 <span>Don't have an account? </span><Link to="/signup" id="signup">Sign Up</Link>
 </StyledForm>
     )

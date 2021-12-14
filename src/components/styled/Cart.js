@@ -63,6 +63,7 @@ justify-content: center;
     padding: 10px 20px;
     color: white;
     border-radius: 2px;
+    border: none;
 }
 
 `

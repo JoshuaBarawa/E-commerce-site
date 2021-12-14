@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 
 .wrapper {
-    margin-top: 5%;
+    margin: auto;
+    margin-top:30px;
     display: flex;
     justify-content: center;
     font-family: "Arimo";
@@ -12,11 +13,11 @@ import styled from 'styled-components'
     box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
     color: #9fafca;
     font-weight: bold;
-    
+    width:50%;
 }
 
 .container {
-    width: 65%;
+    width: 90%;
     padding: 5% 10%;
 }
 
@@ -95,11 +96,11 @@ form {
         height: 30px;
         color: #fff;
         background-color: #6077c0;
-        text-transform: uppercase;
+    
         border: 0;
+        padding:5px 10px;
         border-radius: .3rem;
         letter-spacing: 1px;
-        font-weight: bold;
         text-align:center;
     }
 }
