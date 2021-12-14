@@ -6,14 +6,16 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 0px 30px;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(100,100,196,1) 0%, rgba(177,104,96,1) 22%, rgba(0,212,255,1) 100%);
+background-color:#fff;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 position:sticky;
 top:0;
 height: 80px;
+border-bottom: 2px solid black;
 
 .logo{
     margin-left: 10px;
-    color:white;
+    color:black;
     font-size:35px;
     text-decoration: none;
     font-weight:bold;
@@ -33,7 +35,7 @@ height: 80px;
    margin-right: 30px;
    text-decoration: none;
    font-size: 21px;
-   color:#fff;
+   color:black;
 }
 
 

@@ -33,8 +33,7 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [signUpEmail, setSignUpEmail] = useState('')
 const [signUpPassword, setSignUpPassword] = useState('')
-const [emailError, setEmailError] = useState('')
-const [passwordError, setPasswordError] = useState('')
+
 
 let navigate = useNavigate();
 
@@ -47,65 +46,52 @@ onAuthStateChanged(auth, (currentUser) => {
     if(user){
       navigate("/checkout")
     }
-
     else{
       navigate("/login")
     }
   }
 
-const clearInputs = () => {
-  setEmail('')
-  setPassword('')
-  
-}
-
 const signUp = async (e) => {
-  e.preventDefault()
 try{
   await createUserWithEmailAndPassword(auth ,signUpEmail, signUpPassword)
-  clearInputs()
   navigate("/")
 }
   catch(error) {
     switch(error.code) {
       case 'auth/email-already-in-use':
       case 'auth/invalid-email':
-          setEmailError("Invalid email address")
+        toast.error("Invalid email address")
           break;
           case 'auth/weak-password':
-            setPasswordError("Password must be at least 6 charac")
+            toast.error("Password must be at least 6 charac")
             break;
     }
   }
 }
 
-
 const login = async (e) => {
-
   try{
     await signInWithEmailAndPassword(auth, email, password)
-    navigate("/checkout")
+    navigate("/cart")
   }
  catch(error) {
     switch(error.code) {
       case 'auth/invalid-email':
       case 'auth/user-disabled':
       case 'auth/user-not-found':
-          setEmailError("Invalid email address")
+        toast.error("Invalid credentials")
           break;
           case 'auth/wrong-password':
-            setPasswordError("Invalid password")
+            toast.error("Invalid credentials")
             break;
     }
   }
 }
 
-
 const logout = async () => {
   await signOut(auth);
   navigate("/")
 }
-
 
 
 const Product = function(product, quantity) {
@@ -127,15 +113,11 @@ useEffect(() => {
     })
   }
 
-
-
   const getProducts = async () => {
     await axios.get("https://fakestoreapi.com/products")
     .then((response) => {
     setProducts(response.data)
   }) 
-  
-  
   }
  
 const getCategories = async () => {
@@ -145,42 +127,36 @@ const getCategories = async () => {
   }) 
 }
 
-
-
 getProducts();
 getCategories();
 
 }, [cartItems.length])
-
-
 
 const addToCart = item =>{
    axios.get("https://fakestoreapi.com/products/" + item.target.value)
   .then((response) => {
 
   const newProduct = new Product(response.data, quantity)
-
       cartItems.push(newProduct)
       setCartItems([...cartItems])
-     
       sessionStorage.setItem("orders", JSON.stringify(cartItems));
        setCartItems(JSON.parse(sessionStorage.getItem("orders")));
        setCount(count + newProduct.quantity)
        setTotal(total + (newProduct.product.price * newProduct.quantity))
        
        toast.success("Item(s) added to cart")
-
-       console.log(cartItems)
-  
   })
-
 }
 
-const removeItemFromCart = (item) =>{
-  cartItems.pop();
-  setCartItems([...cartItems])
-  console.log(item.target.value)
-  console.log(cartItems)
+const removeItemFromCart = (id) =>{
+const items =  cartItems;
+
+items.forEach((item, index) =>{
+  if(id.target.value === item.id)
+    items.splice(index, 1);
+    window.location.reload();
+})
+sessionStorage.setItem("orders", JSON.stringify(cartItems));
 }
 
 
@@ -192,20 +168,19 @@ const filterProducts = category =>{
     })};
 
     const incrementQuantity = () =>{
+      if(quantity >= 0){
         setQuantity(quantity + 1)
+      }
+        
       };
 
       const decrementQuantity = () =>{
-       
-        setQuantity(quantity - 1)
-       
+        if(quantity > 0){
+          setQuantity(quantity - 1)
+        }
          };
 
-
-
-const theme = {
-          
-}
+const theme = {}      
 
   return (
     <ThemeProvider theme={theme}>
@@ -218,9 +193,9 @@ const theme = {
         <Route exact path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItemFromCart} total={total} checkUser={handleCheckUser}/>} />
         <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart} decrItem={decrementQuantity} incrItem={incrementQuantity} quantity={quantity}/>} />
         <Route exact path='/checkout' element={<Checkout/>} />
-        <Route exact path='/login' element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleLogin={login} emailError={emailError} passwordError={passwordError} />} />
+        <Route exact path='/login' element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleLogin={login} />} />
 
-        <Route exact path='/signup' element={<Signup email={signUpEmail} password={signUpPassword} setEmail={setSignUpEmail} setPassword={setSignUpPassword} handleSignUp={signUp} emailError={emailError} passwordError={passwordError}/>} />
+        <Route exact path='/signup' element={<Signup email={signUpEmail} password={signUpPassword} setEmail={setSignUpEmail} setPassword={setSignUpPassword} handleSignUp={signUp}/>} />
       </Routes>
 
       </Container>

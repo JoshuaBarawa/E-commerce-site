@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledCard = styled.div`
 
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 padding: 20px 20px;
 display: flex;
 flex-direction: column;

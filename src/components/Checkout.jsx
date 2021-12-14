@@ -53,7 +53,6 @@ const Checkout = () =>{
                 <div className="btns">
                 <Link id="link" to="/cart">Back to cart</Link>
                 <button>Confirm and Pay</button>
-                   
                 </div>
 
             </form>

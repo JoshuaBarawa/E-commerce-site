@@ -15,10 +15,10 @@ h1{
     font-size:25px;
 }
 
-#username, #email, #password{
+ #email, #password{
     width:80%;
     padding:10px 10px;
-    margin-top:10px;
+    margin-top:25px;
     border-radius:5px;
     border:none;
     border:1px solid #ccc;

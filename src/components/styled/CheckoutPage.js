@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
  export const StyledCheckout = styled.div`
 
-
 .wrapper {
     margin: auto;
     margin-top:30px;
@@ -10,15 +9,15 @@ import styled from 'styled-components'
     justify-content: center;
     font-family: "Arimo";
     background-color: #0e387a;
-    box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
     color: #9fafca;
     font-weight: bold;
-    width:50%;
+    width:60%;
+    border-radius:10px;
 }
 
 .container {
     width: 90%;
-    padding: 5% 10%;
+    padding: 5% 5%;
 }
 
 h1 {
@@ -38,10 +37,10 @@ form {
         border: 0;
         font-size: 1rem;
         letter-spacing: .15rem;
-        font-family: "Arimo";
         margin-top: 5px;
         color: $maroon;
         border-radius: 4px;
+        padding: 4px 10px;
     }
 
     label {
@@ -83,12 +82,11 @@ form {
         height: 30px;
         color: #fff;
         background-color: #6077c0;
-        text-transform: uppercase;
         border: 0;
         border-radius: .3rem;
         letter-spacing: 1px;
         text-decoration:none;
-        padding:2px 5px;
+        padding:5px 10px;
     }
 
     button {
@@ -96,7 +94,6 @@ form {
         height: 30px;
         color: #fff;
         background-color: #6077c0;
-    
         border: 0;
         padding:5px 10px;
         border-radius: .3rem;
@@ -121,10 +118,16 @@ button:focus {
 
     .btns {
         align-items: center;
+        flex-wrap:wrap;
 
         button {
-            width: 50%;
+            width: auto;
         }
+
+        #link{
+            width:auto !important;
+        }
+        
     }
 
     form h1 {
