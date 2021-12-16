@@ -41,5 +41,30 @@ display: flex;
    border:none;
 }
 
+
+@media only screen and (max-width:600px){
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+
+    #products{
+        postion:relative;
+        width: 100%
+        z-index:-1;
+    }
+
+    #category{
+        min-width:auto
+        background-color: #fff;
+        width:80%;
+        z-index:-1;
+        margin-left:0px;
+        position:relative;
+        top:0;
+    }
+
+     }
+    
+
 `
 export default StyledProduct

@@ -12,6 +12,8 @@ position:sticky;
 top:0;
 height: 80px;
 border-bottom: 2px solid black;
+width:100vw;
+text-align:center;
 
 .logo{
     margin-left: 10px;
@@ -24,7 +26,6 @@ border-bottom: 2px solid black;
 
 .links{
     display: inline-flex;
-
 }
 
 .links li{
@@ -37,6 +38,21 @@ border-bottom: 2px solid black;
    font-size: 21px;
    color:black;
 }
+
+@media only screen and (max-width:600px){
+    flex-direction: column;
+    justify-content: center;
+    height:90px;
+
+
+    .logo{
+        margin-top: 10px;
+    }
+
+}
+
+
+
 
 
 `

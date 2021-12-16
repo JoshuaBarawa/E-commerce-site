@@ -8,7 +8,7 @@ function Cart({cartItems,removeItem, total, checkUser}) {
         
         <StyledCart>
 
-        { cartItems.length === 0 ? <img src="./images/emptycart.png" alt="empty_cart"/> : <p>Items in cart:{cartItems.length}{cartItems.map(item => {
+        { cartItems.length === 0 ? <img src="./images/emptycart.png" alt="empty_cart"/> : <p>{cartItems.map(item => {
             return(
             <div className="cart">
         
@@ -33,9 +33,8 @@ function Cart({cartItems,removeItem, total, checkUser}) {
 
             
             <div className="order-form">
-            <p>SubTotal:{(total).toFixed(2)}</p>
-            <p>Delivery: Free</p>
-            <p>Total: {(total).toFixed(2)}</p>
+            <p><span>SubTotal:</span>{(total).toFixed(2)}</p>
+            <p><span>Total:</span> {(total).toFixed(2)}</p>
             <button className="btn-checkout" onClick={checkUser}>Proceed To Checkout</button>
             
             </div>
