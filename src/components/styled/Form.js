@@ -49,6 +49,13 @@ h1{
      font-size: 12px;
 }
 
+@media only screen and (max-width:600px){
+width:90%;
+
+
+}
+
+
 `
 
 export default StyledForm

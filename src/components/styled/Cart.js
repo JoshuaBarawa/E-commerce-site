@@ -56,12 +56,12 @@ justify-content: center;
 }
 
 .order-form{
-    width: 250px;
+    width: 400px;
     float:right;
     margin-top:20px;
-    text-align:left;
-    background-color:red;
+    text-align:right;
     padding: 5px 10px;
+    font-weight:bold;
 }
 
 .btn-checkout{
@@ -93,6 +93,11 @@ justify-content: center;
     #price{
         text-align:center;
         margin-top:20px;
+    }
+
+    .order-form{
+        width:100%;
+        text-align:left;
     }
 }
 
