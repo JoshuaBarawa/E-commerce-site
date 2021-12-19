@@ -48,7 +48,6 @@ display: flex;
     justify-content:space-around;
    
     #products{
-        z-index:-1;
         width:100%;
         margin:0;
         padding:0;

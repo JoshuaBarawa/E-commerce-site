@@ -9,7 +9,7 @@ justify-content:center;
 margin-top:30px;
 
 #featured {
-    width: 25%;
+    width: 300px;
 }
 
 #description{
@@ -22,9 +22,14 @@ margin: 10px 20px;
     padding: 2px 30px;
     cursor: pointer;
     border-radius:2px;
-    margin: 0px 10px;
+    margin: 10px 0px;
+    margin-right: 10px;
     font-size:22px;
 }
+#add{
+    margin-left: 10px;
+}
+
 .card{
     display:flex;
     width:80%;

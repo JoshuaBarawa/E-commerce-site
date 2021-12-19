@@ -139,16 +139,27 @@ getCategories();
 const addToCart = item =>{
    axios.get("https://fakestoreapi.com/products/" + item.target.value)
   .then((response) => {
+  const newProduct = new Product(response.data, quantity);
 
-  const newProduct = new Product(response.data, quantity)
-      cartItems.push(newProduct)
-      setCartItems([...cartItems])
-      sessionStorage.setItem("orders", JSON.stringify(cartItems));
-       setCartItems(JSON.parse(sessionStorage.getItem("orders")));
-       setCount(count + newProduct.quantity)
-       setTotal(total + (newProduct.product.price * newProduct.quantity))
-       
-       toast.success("Item(s) added to cart")
+for(var i=0;i<cartItems.length;i++){
+
+  if(cartItems[i].product.id === newProduct.product.id){
+   alert("Item already exists")
+  }
+
+  console.log("New item was added");
+  cartItems.push(newProduct)
+  setCartItems([...cartItems])
+  sessionStorage.setItem("orders", JSON.stringify(cartItems));
+  setCartItems(JSON.parse(sessionStorage.getItem("orders")));
+  setCount(count + newProduct.quantity)
+  setTotal(total + (newProduct.product.price * newProduct.quantity))
+
+  toast.success("Item(s) added to cart")
+
+
+}
+
   })
 }
 

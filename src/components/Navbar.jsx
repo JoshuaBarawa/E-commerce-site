@@ -6,7 +6,7 @@ import StyledNavbar from './styled/Navbar'
 
 const Navbar = ({orders, handleLogout, user}) => {
         return <StyledNavbar>
-       <NavLink to='/' className="logo" >E-Cart</NavLink>
+       <NavLink to='/' className="logo"><img id="logo-img" src="./images/logo.png" alt=""/>E-Cart</NavLink>
 
 <ul className="links">
     <li><NavLink className="link" to='/cart'><img className="image" src='./images/shopping_cart.png' alt=""/>{orders} Items</NavLink></li>

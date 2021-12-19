@@ -12,14 +12,19 @@ top:0;
 height: 80px;
 text-align:center;
 
+
 .logo{
     margin-left: 10px;
-    color:black;
     font-size:35px;
     text-decoration: none;
     font-weight:bold;
     text-align:center;
     padding: 0px 30px;
+    color:#fff;
+}
+
+#logo-img{
+    width:70px;
 }
 
 .links{
@@ -35,7 +40,7 @@ text-align:center;
    margin-right: 30px;
    text-decoration: none;
    font-size: 21px;
-   color:black;
+   color:#fff;
 }
 
 @media only screen and (max-width:600px){
