@@ -13,7 +13,8 @@ justify-content: center;
     margin: 20px 0px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding:20px 20px;
-     min-width:auto;
+    width:700px;
+    min-width:auto;
 }
 #item{
     width:120px;
@@ -66,10 +67,10 @@ justify-content: center;
 
 .btn-checkout{
     text-decoration:none;
-    background-color: blue;
+    background-color: #0070b8;
     padding: 10px 20px;
     color: white;
-    border-radius: 2px;
+    border-radius: 5px;
     border: none;
 }
 

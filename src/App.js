@@ -8,6 +8,7 @@ import Products from './components/Products'
 import ProductPage from './components/ProductPage'
 import Checkout from './components/Checkout'
 import Signup from './components/Signup';
+import FinalPage from './components/FinalPage'
 
 import Container from './components/styled/Container'
 import GlobalStyle from './components/styled/GlobalStyles'
@@ -140,13 +141,7 @@ const addToCart = item =>{
    axios.get("https://fakestoreapi.com/products/" + item.target.value)
   .then((response) => {
   const newProduct = new Product(response.data, quantity);
-
-for(var i=0;i<cartItems.length;i++){
-
-  if(cartItems[i].product.id === newProduct.product.id){
-   alert("Item already exists")
-  }
-
+  
   console.log("New item was added");
   cartItems.push(newProduct)
   setCartItems([...cartItems])
@@ -156,10 +151,6 @@ for(var i=0;i<cartItems.length;i++){
   setTotal(total + (newProduct.product.price * newProduct.quantity))
 
   toast.success("Item(s) added to cart")
-
-
-}
-
   })
 }
 
@@ -216,9 +207,9 @@ const theme = {}
         <Route exact path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItemFromCart} total={total} checkUser={handleCheckUser}/>} />
         <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart} decrItem={decrementQuantity} incrItem={incrementQuantity} quantity={quantity}/>} />
   
-        <Route exact path='/checkout' element={<Checkout/>} />
+        <Route exact path='/checkout' element={<Checkout amount={total}/>} />
         <Route exact path='/login' element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleLogin={login} />} />
-
+        <Route exact path='/checkout_done' element={<FinalPage/>} />
         <Route exact path='/signup' element={<Signup email={signUpEmail} password={signUpPassword} setEmail={setSignUpEmail} setPassword={setSignUpPassword} handleSignUp={signUp}/>} />
       </Routes>
 

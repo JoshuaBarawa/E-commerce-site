@@ -6,7 +6,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 overflow-x:hidden;
-background-color:#191970;
+background-color:#0e387a;
 position:sticky;
 top:0;
 height: 80px;
@@ -36,6 +36,12 @@ text-align:center;
    list-style-type:none;
  }
 
+ #order{
+     background-color: #ff355e;
+     padding:7px;
+     border-radius:5px;
+ }
+
 .links .link{
    margin-right: 30px;
    text-decoration: none;
@@ -46,7 +52,7 @@ text-align:center;
 @media only screen and (max-width:600px){
     flex-direction: column;
     justify-content: center;
-    height:90px;
+    height:auto;
 
 
     .logo{

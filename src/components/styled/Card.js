@@ -23,8 +23,8 @@ img{
     color:#5C548A;
 }
 #price{
-    font-size:20px;
-   
+    font-size:18px;
+    font-weight:bold;
 }
 
 #btn{
@@ -33,7 +33,7 @@ img{
     padding: 10px 0px;
     cursor: pointer;
     font-size: 15px;
-    background-color: #4169E1;
+    background-color: #0247fe;
     border:none;
     border-radius: 3px;
     text-align:center;

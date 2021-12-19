@@ -11,7 +11,7 @@ import styled from 'styled-components'
     background-color: #0e387a;
     color: #9fafca;
     font-weight: bold;
-    width:60%;
+    width:700px;
     border-radius:10px;
 }
 
@@ -62,15 +62,6 @@ form {
     }
 }
 
-.name, .place{
-    justify-content: space-between;
-    display: flex;
-    width: 100%;
-
-    div {
-        width: 45%;
-    }
-}
 
 .btns {
     display: flex;
@@ -79,6 +70,7 @@ form {
 
     #link{
         margin: 3px 0;
+        width:200px;
         height: 30px;
         color: #fff;
         background-color: #6077c0;
@@ -87,10 +79,12 @@ form {
         letter-spacing: 1px;
         text-decoration:none;
         padding:5px 10px;
+        text-align:center;
     }
 
-    button {
+    #checkout {
         margin: 3px 0;
+        width:200px;
         height: 30px;
         color: #fff;
         background-color: #6077c0;
@@ -109,11 +103,12 @@ button:focus {
 
 @media (max-width: 736px) {
     .wrapper {
-        width: 100%;
+        width: 95%;
     }
 
     .container {
         width: 100%;
+       
     }
 
     .btns {
@@ -131,25 +126,6 @@ button:focus {
     }
 
     form h1 {
-        text-align: center;
-    }
-
-    .name,
-    .cc-info {
-        flex-direction: column;
-        width: 100%;
-        justify-content: space-between;
-
-        div {
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            display: flex;
-        }
-    }
-
-    .street,
-    .cc-num {
         text-align: center;
     }
 

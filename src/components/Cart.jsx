@@ -18,7 +18,7 @@ function Cart({cartItems,removeItem, total, checkUser}) {
             <div id="info">
             <p id="title">{item.product.title}</p>
             <div>
-            <button id="minus">-</button><span id="value">{item.quantity}</span><button id="add">+</button>  
+            <span id="value">Quantity: {item.quantity}</span> 
             </div>
             </div> 
             </div>
