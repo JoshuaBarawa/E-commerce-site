@@ -5,14 +5,11 @@ const StyledNavbar = styled.nav`
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 0px 30px;
-background-color:#fff;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+overflow-x:hidden;
+background-color:#191970;
 position:sticky;
 top:0;
 height: 80px;
-border-bottom: 2px solid black;
-width:100vw;
 text-align:center;
 
 .logo{
@@ -22,10 +19,12 @@ text-align:center;
     text-decoration: none;
     font-weight:bold;
     text-align:center;
+    padding: 0px 30px;
 }
 
 .links{
     display: inline-flex;
+    padding: 0px 30px;
 }
 
 .links li{

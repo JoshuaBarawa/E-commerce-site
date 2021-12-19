@@ -9,15 +9,27 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     font-family: 'Poppins', sans-serif; 
+    box-sizing: border-box;
 }
 
 body{
-    width:100vw;
     margin:0px;
     padding:0px;
-    box-sizing: border-box;
-    
 }
+
+@media only screen and (max-width:700px){
+    html,body{
+        margin:0px;
+        padding:0px;
+        width:100%;
+        overflow-x: hidden;
+    }
+    
+
+
+
+     }
+
 
 `
 

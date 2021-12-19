@@ -10,7 +10,8 @@ display: flex;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
-    width: 80%
+    width: 80%;
+
 }
 
 #category{
@@ -42,26 +43,29 @@ display: flex;
 }
 
 
-@media only screen and (max-width:600px){
+@media only screen and (max-width:763px){
     flex-direction: column;
-    justify-content: center;
-    width:100%;
-
+    justify-content:space-around;
+   
     #products{
-        postion:relative;
-        width: 100%
         z-index:-1;
+        width:100%;
+        margin:0;
+        padding:0;
     }
 
     #category{
-        min-width:auto
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-gap: 10px;
+        min-width:auto;
+        width:100%;
         background-color: #fff;
-        width:80%;
-        z-index:-1;
-        margin-left:0px;
-        position:relative;
-        top:0;
+        position:sticky;
+        top: 0px;
+       
     }
+
 
      }
     

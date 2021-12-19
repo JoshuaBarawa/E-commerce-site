@@ -17,7 +17,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import {auth} from './firebase-config'
 import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword} from 'firebase/auth'
 
+
 import {useState, useEffect} from 'react'
+
 
 function App() {
 
@@ -102,6 +104,8 @@ const Product = function(product, quantity) {
 
 
 useEffect(() => {
+  
+
   if( sessionStorage.getItem("orders") != null){
     setCartItems(JSON.parse(sessionStorage.getItem("orders")))
     setQuantity(1)
@@ -149,14 +153,20 @@ const addToCart = item =>{
 }
 
 const removeItemFromCart = (id) =>{
-const items =  cartItems;
+cartItems.map((item, i) =>{
 
-items.forEach((item, index) =>{
-  if(id.target.value === item.id)
-    items.splice(index, 1);
-    window.location.reload();
+  if(id.target.value == i){
+    var index = cartItems.indexOf(item);
+    cartItems.splice(index, 1);
+
+    console.log(id.target.value);
+    console.log(item);
+    sessionStorage.setItem("orders", JSON.stringify(cartItems));
+  }
+window.location.reload();
+   
 })
-sessionStorage.setItem("orders", JSON.stringify(cartItems));
+
 }
 
 
@@ -183,15 +193,18 @@ const filterProducts = category =>{
 const theme = {}      
 
   return (
-    <ThemeProvider theme={theme}>
-    <GlobalStyle/>
-    <Navbar orders={count} user={user} handleLogout={logout}/>
+
+<ThemeProvider theme={theme}>
+
+<GlobalStyle/>
+<Navbar orders={count} user={user} handleLogout={logout}/>
     <Container> 
     <ToastContainer />
       <Routes>
       <Route  exact path='/' element={<Products products={products} categories={categories} handleFilter={filterProducts}/>} />
         <Route exact path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItemFromCart} total={total} checkUser={handleCheckUser}/>} />
         <Route path='/product/:id' element={<ProductPage handleAddToCart={addToCart} decrItem={decrementQuantity} incrItem={incrementQuantity} quantity={quantity}/>} />
+  
         <Route exact path='/checkout' element={<Checkout/>} />
         <Route exact path='/login' element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleLogin={login} />} />
 
@@ -200,6 +213,7 @@ const theme = {}
 
       </Container>
       </ThemeProvider>
+
   );
 }
 

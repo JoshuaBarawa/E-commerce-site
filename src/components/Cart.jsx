@@ -8,7 +8,7 @@ function Cart({cartItems,removeItem, total, checkUser}) {
         
         <StyledCart>
 
-        { cartItems.length === 0 ? <img src="./images/emptycart.png" alt="empty_cart"/> : <p>{cartItems.map(item => {
+        { cartItems.length === 0 ? <img src="./images/emptycart.png" alt="empty_cart"/> : <p>{cartItems.map((item,index) => {
             return(
             <div className="cart">
         
@@ -24,7 +24,7 @@ function Cart({cartItems,removeItem, total, checkUser}) {
             </div>
 
             <div id="action">
-            <button id="remove" value={item.product.id} onClick={removeItem}><img src='./images/close_black_24dp.png' alt=""/></button>
+            <button id="remove" value={index} onClick={removeItem}>Remove</button>
             <p id="price">${item.product.price * item.quantity}</p>
             </div>
             </div>

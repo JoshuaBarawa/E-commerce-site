@@ -5,19 +5,21 @@ import { useParams } from 'react-router-dom'
 import {useState} from 'react'
 import axios from 'axios'
 import {useEffect} from 'react'
+import BounceLoader from "react-spinners/BounceLoader";
 
 const ProductPage = ({handleAddToCart, decrItem, incrItem, quantity}) => {
 
   const { id } = useParams();
   const [product, setProduct] = useState([]);
 
+
   useEffect(() => {
     const getProduct = async () =>{
       await axios.get("https://fakestoreapi.com/products/" + id)
       .then(response => {
         setProduct(response.data);
-       
     });
+   
     }
 
     getProduct()
@@ -29,9 +31,7 @@ const ProductPage = ({handleAddToCart, decrItem, incrItem, quantity}) => {
 return ( 
 
 <StyledProductPage>
-
-  <img id="featured" src={product.image} alt="" />
-
+<img id="featured" src={product.image} alt="" />
 <div id="description">
     <span id="category">{product.category}</span>
     <h3 id="title">{product.title}</h3>
@@ -42,7 +42,6 @@ return (
     <button id="btn" value={id} onClick={handleAddToCart}><img src="images/icon-cart.svg" alt="" />Add to cart</button>
 
 </div>
-
 </StyledProductPage>
 
     )
